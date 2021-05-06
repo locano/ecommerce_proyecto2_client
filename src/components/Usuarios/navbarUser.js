@@ -13,7 +13,6 @@ function Navbar() {
 
   const openCart = () =>{
     //Se abre el carrito
-    console.log("Open CART");
   }
 
   return (

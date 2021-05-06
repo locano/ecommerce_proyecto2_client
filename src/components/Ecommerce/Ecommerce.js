@@ -7,7 +7,7 @@ const Ecommerce = () => {
     return (
         <div className='shopContainer'>
             <h1 className='eShopTitle'>Productos</h1>
-            <ul>
+            <ul className='custom-ul'>
                 {EcommerceData.map((item, key) => {
                     return (
                         <li key={key} className='row eProductCard'>
