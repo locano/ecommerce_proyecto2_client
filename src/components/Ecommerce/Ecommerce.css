@@ -1,0 +1,44 @@
+body{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.shopContainer{
+    width: calc(100vw);
+    height: calc(100vh);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eShopTitle{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.eProductCard{
+    display: flex;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 1;
+    height: 375px;
+    width: 250px;
+    box-shadow: 3px 3px 3px 3px #545454;
+    border: 1px solid black;
+}
+
+.productImage{
+    height: 150px;
+    width: 250px;
+    justify-self: center;
+    padding: 0%;
+    margin-left: 0%;
+}
+
+.eCart{
+    font-size: 34px;
+}

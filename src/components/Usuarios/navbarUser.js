@@ -11,12 +11,20 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+  const openCart = () =>{
+    //Se abre el carrito
+    console.log("Open CART");
+  }
+
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+          <Link to='#' className='menu-cart'>
+            <AiIcons.AiOutlineShoppingCart onClick={openCart} />
           </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
