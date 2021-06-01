@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import domtoimage from 'dom-to-image';
 import './rankign.css';
-import {db, firebase, auth} from './config/firebase.config';
+import {db, firebase, auth} from '../../../config/firebase.config';
 
 import { jsPDF } from "jspdf";
 
@@ -27,7 +27,7 @@ function toPDF(){
   if (pdf) {
     domtoimage.toPng(input)
       .then(imgData => {
-        pdf.addImage(imgData, 'PNG',-10, 50,320,80);
+        pdf.addImage(imgData, 'PNG',50, 50,320,80);
         pdf.save('chart.pdf');
       });
   }
@@ -103,16 +103,16 @@ for(var j=0; j<ddb.length;j++)
    
     <div style={{ textAlign: "center" }} id="chartadminr">
       <h1 className="tituloadmins">Administradores con mas chats completados</h1>
-      <div className="App" id="chartrankning">
+      <div className="cosa" id="chartrankning">
       {()=>toPDF()}
         <BarChart
-          width={1500}
+          width={900}
           height={300}
           data={datas}
           margin={{
             top: 5,
-            right: 80,
-            left: 300,
+            right: 100,
+            left: 0,
             bottom: 5,
           }}
           barSize={20}
@@ -129,7 +129,7 @@ for(var j=0; j<ddb.length;j++)
           <Bar dataKey="chats" fill="#474747" background={{ fill: "#eee" }} />
         </BarChart>
       </div>
-      <button class="btn btn-accept" onClick= {toPDF} > Descarga pdf</button>
+      <button class="btn69 btn-acceptt" onClick= {toPDF} > Descarga pdf</button>
     </div>
   );
 };

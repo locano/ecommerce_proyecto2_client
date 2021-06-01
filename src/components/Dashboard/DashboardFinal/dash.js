@@ -9,13 +9,14 @@ function All (){
     return(
         <div>
             <div className="c1">
-                <Ranking/>
+                
+                <VentasChart/>
             </div>
             <div className="c2">
                 <ChatReport/>
             </div>
             <div className="c1">
-                <VentasChart/>
+            <Ranking/>
             </div>
         </div>
     )
