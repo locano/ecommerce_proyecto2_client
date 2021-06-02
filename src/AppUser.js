@@ -38,19 +38,16 @@ function App() {
           </div>
         </Switch>
       </Router>
+      {
+        habilitarChat? <div className = 'sticky-bottom-chat'><Chat/></div>: null
+      }
       <button className="floating-button-chat" >
-                  <BsFillChatDotsFill
-                  size={"50px"}
-                  className={"m-0"}
-                  onClick={openChat}/>
-                </button>  
-                <div className = 'sticky-bottom-chat'>
-                {
-                habilitarChat? <Chat/>: null
-                }
-                </div>
-                
-      
+        <BsFillChatDotsFill
+          size={"50px"}
+          className={"m-0"}
+          onClick={openChat}
+        />
+      </button>  
     </>
   );
 }

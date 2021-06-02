@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory, useLocation} from 'react-router-dom';
 import {db, firebase, auth} from "../../../config/firebase.config";
 import './shopAdmin.css';
 
@@ -9,9 +10,12 @@ const AddProd = () =>{
     const [prodCateg, setprodCateg] = useState("");
     const [priceNum, setpriceNum] = useState(0.0);
     const [prodImg, setprodImg] = useState("");
+    const history = useHistory();
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
 
         let newQtyNum = parseInt(qtyNum);
         let newPriceNum = parseFloat(priceNum).toFixed(2);
@@ -24,14 +28,14 @@ const AddProd = () =>{
             price: newPriceNum
         }).then(() => { 
             alert("changes uploaded successfully!")
-            window.location.reload();
+            history.push('/admin/shop');
         }).catch((error) => {
             console.error("Error editing product: ", error);
         })
     }
     
     return(
-        <form className='row d-flex justify-content-center' onSubmit={handleSubmit}>
+        <div className='row d-flex justify-content-center'>
             <h1 className='col-12 formTitle'>Add products</h1>
 
             <label className= 'col-5 formInput'>Insert product's initial quantity: </label>
@@ -52,8 +56,8 @@ const AddProd = () =>{
             <label className= 'col-5 formInput'>Insert link to the new Product's image: </label>
             <input className= 'col-5 formInput' placeholder='Image link' onChange={(e) => setprodImg(e.target.value)} />
 
-            <button className= 'col-5 formInput' type='submit' >Submit</button>
-        </form>
+            <button className= 'col-5 formInput' type='submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+        </div>
     )
 }
 export default AddProd;

@@ -17,6 +17,8 @@ const EditProd = (props) =>{
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
 
         let newQtyNum = parseInt(qtyNum);
         let newPriceNum = parseFloat(priceNum).toFixed(2);
@@ -29,14 +31,14 @@ const EditProd = (props) =>{
             price: newPriceNum
         }).then(() => {
             alert("changes uploaded successfully!")
-            window.location.reload();
+            history.push('/admin/shop');
         }).catch((error) => {
             console.error("Error editing product: ", error);
         })
     }
 
     return(
-        <form className='row d-flex justify-content-center' onSubmit={handleSubmit}>
+        <div className='row d-flex justify-content-center' >
             <h1 className='col-12 formTitle'>Edit products</h1>
 
             <label className= 'col-5 formInput'>Insert product's initial quantity: </label>
@@ -57,8 +59,8 @@ const EditProd = (props) =>{
             <label className= 'col-5 formInput'>Insert link to the new Product's image: </label>
             <input className= 'col-5 formInput' placeholder='Image link' onChange={(e) => setprodImg(e.target.value)} />
 
-            <button className= 'col-5 formInput' type='submit' >Submit</button>
-        </form>
+            <button className= 'col-5 formInput' type='submit' onClick={(e) => handleSubmit(e)}>Submit</button>
+        </div>
     )
 }
 export default EditProd;
