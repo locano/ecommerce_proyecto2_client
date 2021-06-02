@@ -3,7 +3,7 @@ import './chatRep.css'
 import img from './failedColor.png'
 import img2 from './completedColor.png'
 import img3 from './inProgresColor.png'
-import {db} from './config/firebase.config';
+import {db} from '../../../config/firebase.config';
 
 import domtoimage from 'dom-to-image';
 import { jsPDF } from "jspdf";
@@ -16,7 +16,7 @@ function toF(){
   if (pdf) {
     domtoimage.toPng(input)
       .then(imgData => {
-        pdf.addImage(imgData, 'PNG',20, 50,280,120);
+        pdf.addImage(imgData, 'PNG',10, 50,280,120);
         pdf.save('chart2.pdf');
       });
   }
@@ -84,10 +84,10 @@ chats.forEach(l =>
         height: cdisplay,
         borderRadius: '5%'
       }
-      
+      console.log(cdisplay)
     return (
 
-        data !== [] ? <div className="all" id="chart2"><div className = 'chatRep' >
+        data !== [] ?  <><div className="all" id="chart2"><div className = 'chatRep' >
 
             <div className = 'chartHeader'>
         
@@ -110,23 +110,24 @@ chats.forEach(l =>
             <div style = {{width:'5%', height:'auto'}}>
             <div style = {{display:'flex', flexDirection: 'row', whiteSpace:'nowrap'}}>
             <img src = {img3} alt=''/>
-            <strong>En progreso</strong>
+            <strong >En progreso</strong>
             </div>
             </div>
 
-            <div style = {{height:'5px', width:'5px'}}/>
+            <div style = {{height:'5px', width:'3px'}}/>
 
             <div style = {{width:'5%', height:'auto'}}>
             <div style = {{display:'flex', flexDirection: 'row', whiteSpace:'nowrap'}}>
             <img src = {img2} alt=''/>
-            <strong>Completados</strong>
+            <strong style={{fontSize:'1.25rem'}}>Completados</strong>
             </div>
             </div>
 
             </div>
 
-
+            <div className="razada"></div>
             </div>
+            
             
             <div className = 'chartSpace'>
             <div style = {{width: '6.25%', order:1}} />
@@ -159,9 +160,13 @@ chats.forEach(l =>
             
             
             </div>
-            <button class="bt btn-accep" onClick= {()=>toF()} > Descarga pdf</button>
+          
             </div>
-            </div> : <div className = 'chatRep'>No se encontraron datos sobre chats</div>
+
+            
+            </div>   <div className="forB">
+            <button class="bt btn-accep" onClick= {()=>toF()} > Descarga pdf</button>
+            </div></>: <div className = 'chatRep'>No se encontraron datos sobre chats</div>
 
     )
 }

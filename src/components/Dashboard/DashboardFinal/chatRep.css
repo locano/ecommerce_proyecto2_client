@@ -1,17 +1,25 @@
 
-
+.all{
+  width: 100%;
+  max-width: 700px;
+}
 .chatRep {
   display: flex;
   background-color: azure;
   flex-grow: 1;
+  width: 100%;
+  max-width: 700px;
   margin-top: 2%;
   margin-left: 10%;
-  max-width: 70%;
-  height: 500px;
+  
+  max-height: 800px;
   border-width: 1px;
+  height: 500px;
+  min-height: 500px;
   border-color: black;
   border-style: solid;
   color: #000;
+  font-size: 1.5rem;
   align-items: flex-end;
   border-radius: 3%;
   flex-direction: column;
@@ -20,7 +28,8 @@
   display: flex;
   background-color: azure;
   width: 90%;
-  flex-grow: 60;
+  margin-right: 5%;
+  flex-grow: 200;
   border-width: 1px;
   border-color: black;
   border-style: solid;
@@ -29,7 +38,9 @@
   border-radius: inherit;
 }
 .chartHeader {
-  width: 100%;
+  display: flex;
+  width: 70%;
+  left: -200px !important;
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -46,14 +57,15 @@ img {
 
 .bt{
   position: relative;
-  top: 90px;
+  top: -30px;
   border: none;
   border-radius: 40px;
   color: #fff;
   cursor: pointer;
-  font-weight: 700;
-  margin: 0 420px;
-  padding: 20px 70px;
+  font-weight: 100;
+  margin:  0px;
+  padding: 20px 100px;
+  font-size: 1rem;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.80, 0.40, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.80, 0.40, 1);
 }
@@ -64,4 +76,13 @@ img {
 
 .btn-accep:hover {
   background-color: #727272;
+}
+
+.forB{
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.razada{
+  width: 20%;
+  flex-grow: 1;
 }
